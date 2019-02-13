@@ -1,0 +1,20 @@
+#include "holberton.h"
+/**
+ * _islower - pirnt 1 if is lowercase character
+ *
+ *c: variable int
+ *
+ *Return: zero
+ */
+
+int _islower(int c)
+{
+	if (_islower(c))
+	{
+		_putchar('1');
+	}
+	else
+	{
+		_putchar('0');
+	}
+}

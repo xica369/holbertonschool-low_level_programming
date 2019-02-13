@@ -15,27 +15,21 @@ void print_to_98(int n)
 	{
 		for (x = n; x > 98; x--)
 		{
-			printf("%d", x);
-			if (x != 98)
-			{
-				printf(", ");
-			}
-	}
+			printf("%d, ", x);
+		}
+		_putchar('\n');
 	}
 	if (n == 98)
 	{
-		printf("%d", n);
+		printf("%d, ", n);
+		_putchar('\n');
 	}
 	if (n < 98)
 	{
 		for (x = n; x < 98; x++)
 		{
-			printf("%d", x);
-		if (x != 98)
-		{
-			printf(", ");
+			printf("%d, ", x);
 		}
-		}
+		_putchar('\n');
 	}
-	printf("\n");
 }
