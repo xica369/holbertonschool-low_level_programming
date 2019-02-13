@@ -14,15 +14,20 @@ void times_table(void)
 		{
 			a = (x * y) / 10;
 			b = (x * y) % 10;
-			if (a == 0)
+			if (y  == 0)
+			{
+				_putchar(48);
+			}
+			if (a == 0 && b >= 1)
 			{
 				_putchar(' ');
+				_putchar(b + '0');
 			}
-			else
+			if (a >= 1 && b >= 1)
 			{
 				_putchar(a + '0');
+				_putchar(b + '0');
 			}
-			_putchar(b + '0');
 			if (y < 9)
 			{
 				_putchar(',');
