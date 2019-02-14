@@ -11,7 +11,7 @@ int main(void)
 
 	x = 0;
 	y = 1;
-	for (i = 1; i <= 48; i++)
+	for (i = 0; i <= 47; i++)
 	{
 		z = x + y;
 		x = y;
