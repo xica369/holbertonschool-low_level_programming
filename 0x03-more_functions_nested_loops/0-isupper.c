@@ -4,16 +4,16 @@
  *
  *@c: variable int to checks if is uppercase character
  *
- *Return: zero
+ *Return: one if is uppercase else zero
  */
 int _isupper(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 	{
-		return (0);
+		return (1);
 	}
 	else
 	{
-		return (1);
+		return (0);
 	}
 }
