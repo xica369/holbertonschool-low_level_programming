@@ -6,13 +6,11 @@
  */
 int main(void)
 {
-	int i;
 	long int x, y, z, a;
 
 	x = 0;
 	y = 1;
-	for (i = 0; i < 34; i++)
-	{
+	do {
 		z = x + y;
 		x = y;
 		y = z;
@@ -20,7 +18,7 @@ int main(void)
 		{
 		a = a + z;
 		}
-	}
+	} while (z < 4000000);
 	printf("%ld\n", a);
 	return (0);
 }
