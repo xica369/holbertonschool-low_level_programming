@@ -16,7 +16,10 @@ int main(void)
 		z = x + y;
 		x = y;
 		y = z;
+		if (z % 2 == 0)
+		{
 		a = a + z;
+		}
 	}
 	printf("%ld\n", a);
 	return (0);
