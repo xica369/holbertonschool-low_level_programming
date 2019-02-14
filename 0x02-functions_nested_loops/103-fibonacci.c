@@ -14,9 +14,9 @@ int main(void)
 		z = x + y;
 		x = y;
 		y = z;
-		if (y % 2 == 0)
+		if (z % 2 == 0)
 		{
-		a = a + y;
+		a = a + z;
 		}
 	} while (z < 4000000);
 	printf("%ld\n", a);
