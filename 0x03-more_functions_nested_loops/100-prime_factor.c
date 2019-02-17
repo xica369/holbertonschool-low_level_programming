@@ -19,6 +19,7 @@ int main(void)
 		}
 		if (b == 1)
 		{
+			x + 1;
 			printf("%ld\n", x);
 		}
 	}
