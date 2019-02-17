@@ -6,19 +6,22 @@
  */
 int main(void)
 {
-	long int x, y, z, a;
+	int i;
+	long int x, y, z, j;
 
 	x = 0;
 	y = 1;
-	do {
+	j = 0;
+	for (i = 0; j < 4000000; i++)
+	{
 		z = x + y;
 		x = y;
 		y = z;
 		if (z % 2 == 0)
 		{
-		a = a + z;
+			j = j + z;
 		}
-	} while (z < 4000000);
-	printf("%ld\n", a);
+	}
+	printf("%ld\n", j);
 	return (0);
 }
