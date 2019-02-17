@@ -14,6 +14,7 @@ int main(void)
 		if (b % x == 0)
 		{
 			b = b / x;
+			x = x - 1;
 		}
 		if (b == 1)
 		{
