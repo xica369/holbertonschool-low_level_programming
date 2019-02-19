@@ -4,16 +4,17 @@
  *
  *@s: pointer of the string
  *
- *Return: zero
+ *Return: the length of a string
  */
 int _strlen(char *s)
 {
-	int x = 1, y = 1;
+	int x = 1;
+	int y = 0;
 
 while (x != '\0')
 {
 	x = *(s + y);
 	y++;
 }
-return (y - 1);
+return (y);
 }
