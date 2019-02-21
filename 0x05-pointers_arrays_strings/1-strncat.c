@@ -4,6 +4,7 @@
  *
  *@dest: string new with add the string src
  *@src: string to add
+ *@n: number characters to copy
  *
  *Return: string dest
  */
