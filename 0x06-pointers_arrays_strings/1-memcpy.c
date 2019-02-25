@@ -1,6 +1,6 @@
 #include "holberton.h"
 /**
- **_memcpy -  copies n bytes from memory area src to memory area dest
+ **_memcpy - copies n bytes from memory area src to memory area dest
  *
  *@dest: pointer that save n bytes form memory area src
  *@src: pointer that have the byetes to copy to memory area dest
