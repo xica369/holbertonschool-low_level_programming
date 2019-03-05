@@ -11,7 +11,7 @@
  */
 int main(int argc, char *argv[])
 {
-        int cont, num, aux;
+	int cont, num, aux = 0;
 	int set[] = {25, 10, 5, 2, 1};
 
 	if (argc != 2)
@@ -19,19 +19,14 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		return (1);
 	}
-	if (isdigit(*argv[1]) == 0)
-		{
-			printf("Error\n");
-			return (1);
-		}
 		num = atoi(argv[1]);
 		if (num < 0)
 		{
 			printf("0\n");
 			return (1);
 		}
-        for (cont = 0; set[cont]; cont++)
-        {
+		for (cont = 0; set[cont]; cont++)
+		{
 		if (num >= set[cont])
 		{
 			aux = aux + (num / set[cont]);
@@ -42,6 +37,6 @@ int main(int argc, char *argv[])
 			break;
 		}
 	}
-        printf("%d\n", aux);
-        return (0);
+		printf("%d\n", aux);
+		return (0);
 }
