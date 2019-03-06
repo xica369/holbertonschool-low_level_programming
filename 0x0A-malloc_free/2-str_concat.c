@@ -14,9 +14,12 @@ char *str_concat(char *s1, char *s2)
 	int cont = 0, cont1, cont2, cont3;
 	char *s3;
 
-	if (s1 == NULL || s2 == NULL)
+	if (s1 == NULL)
 	{
 		s1 = "";
+	}
+	if (s2 == NULL)
+	{
 		s2 = "";
 	}
 	for (cont1 = 0; s1[cont1]; cont1++)
