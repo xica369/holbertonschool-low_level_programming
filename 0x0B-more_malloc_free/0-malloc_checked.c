@@ -4,7 +4,7 @@
 /**
  *void *malloc_checked - function that allocates memory using malloc
  *
- *@: size of memory to separate
+ *@b: size of memory to separate
  *
  *Return: a pointer to the allocated memory
  */
@@ -15,7 +15,7 @@ void *malloc_checked(unsigned int b)
 	s = (void *) malloc(b);
 	if (s == NULL)
 	{
-		exit (98);
+		exit(98);
 	}
 	return (s);
 }
