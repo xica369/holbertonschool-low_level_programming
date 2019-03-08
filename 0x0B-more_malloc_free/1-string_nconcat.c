@@ -29,7 +29,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	for (cont2 = 0; s2[cont2]; cont2++)
 	{
 	}
-	if (cont2 <= n)
+	if (cont2 < n)
 	{
 		n = cont2;
 	}
@@ -50,5 +50,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 			cont = cont + 1;
 		}
 	}
+	s3[cont3] = 0;
 	return (s3);
 }
