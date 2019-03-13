@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "dog.h"
 /**
  **_strdup -  copy of the string and returns a pointer with its newly allocated
@@ -9,8 +10,8 @@
  */
 char *_strdup(char *str)
 {
-	int cont;
 	char *s;
+	int cont;
 
 	if (str == NULL)
 	{
@@ -28,6 +29,7 @@ char *_strdup(char *str)
 	{
 		s[cont] = str[cont];
 	}
+	s[cont] = 0;
 	return (s);
 }
 /**
@@ -41,19 +43,32 @@ char *_strdup(char *str)
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	char *s1, *s2;
+	dog_t *newD;
 
-	s1 = _strdup(name);
-	s2 = _strdup(owner);
+	newD = malloc(sizeof(dog_t));
+        if (newD == NULL)
+        {
+                free(newD);
+                return (NULL);
+        }
 
-	struc dog *newD;
-	new = malloc(sizeof(struct dog));
-	if (newD == NULL)
+	newD->name = _strdup(name);
+	if (newD->name == NULL)
 	{
+		free(newD->name);
 		return (NULL);
 	}
-	s1->name = name;
-	age->age = age;
-	s2->owner = owner;
+	newD->owner = _strdup(owner);
+	if (newD->owner == NULL)
+	{
+		free(newD->owner);
+                return (NULL);
+	}
+	newD->age = age;
+	if (newD == NULL)
+	{
+		free(newD);
+		return (NULL);
+	}
 	return (newD);
 }
