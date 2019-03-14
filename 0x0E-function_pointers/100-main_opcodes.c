@@ -23,4 +23,5 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		exit(2);
 	}
+	return (0);
 }
