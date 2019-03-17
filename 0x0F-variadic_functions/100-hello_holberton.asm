@@ -1,12 +1,12 @@
           global    main
 
 	          section   .text
-main:	    	mov       rax, 0x02000004
+main:	    	mov       rax, 1
 	          mov       rdi, 1
 	          mov       rsi, message
-	          mov       rdx, 13
+	          mov       rdx, 17
 	          syscall
-	          mov       rax, 0x02000001
+	          mov       rax, 60
 	          xor       rdi, rdi
 	          syscall
 
