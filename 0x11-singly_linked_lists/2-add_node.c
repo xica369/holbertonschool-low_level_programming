@@ -32,7 +32,7 @@ list_t *add_node(list_t **head, const char *str)
 {
 	list_t *nodo;
 
-		nodo = malloc(sizeof(nodo));
+		nodo = malloc(sizeof(list_t));
 		if (nodo == NULL)
 		{
 			free(nodo);
