@@ -3,24 +3,6 @@
 #include <string.h>
 #include "lists.h"
 /**
- *_strlen - returns the length of a string
- *
- *@s: pointer of the string
- *
- *Return: the length of a string
- */
-int _strlen(char *s)
-{
-	unsigned int length = 0;
-
-	while (*s != '\0')
-	{
-		s++;
-		length++;
-	}
-	return (length);
-}
-/**
  **add_node - function that adds a new node at the end of a list_t list
  *
  *@head: address of the new nodo
@@ -31,6 +13,7 @@ int _strlen(char *s)
 list_t *add_node(list_t **head, const char *str)
 {
 	list_t *nodo;
+	unsigned int length = 0;
 
 		nodo = malloc(sizeof(list_t));
 		if (nodo == NULL)
@@ -39,7 +22,11 @@ list_t *add_node(list_t **head, const char *str)
 			return (NULL);
 		}
 		nodo->str = strdup(str);
-		nodo->len = _strlen(nodo->str);
+		while (str[length])
+		{
+			length++;
+		}
+		nodo->len = length;
 		nodo->next = *head;
 		*head = nodo;
 		return (*head);
