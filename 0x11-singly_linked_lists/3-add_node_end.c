@@ -3,9 +3,12 @@
 #include <string.h>
 #include "lists.h"
 /**
+ **add_node_end - adds a new node at the end of a list
  *
+ *@head: pointer to last element of list
+ *@str: new element to add
  *
- *
+ *Return: address of the new element or Null if it failed
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
@@ -13,11 +16,6 @@ list_t *add_node_end(list_t **head, const char *str)
 	list_t *nodo;
 	list_t *temp;
 
-	if (*head == NULL)
-
-	temp = *head;
-	for (; temp != NULL; temp = temp->next)
-        {
 		nodo = malloc(sizeof(list_t));
 		if (nodo == NULL)
 		{
@@ -30,8 +28,19 @@ list_t *add_node_end(list_t **head, const char *str)
 			i++;
 		}
 		nodo->len = i;
-		nodo->next = *head;
-	}
-	*head = nodo;
+		nodo->next = NULL;
+		if (*head == NULL)
+		{
+			*head = nodo;
+		}
+		else
+		{
+			temp = *head;
+			while (temp->next != NULL)
+			{
+				temp = temp->next;
+			}
+			temp->next = nodo;
+		} 
 	return (*head);
 }
