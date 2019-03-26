@@ -13,8 +13,9 @@ void free_list(list_t *head)
 
 	while (head != '\0')
 	{
-		nodo = head->next;
-		free(head);
-		head = nodo;
+		nodo = head;
+		free(nodo->str);
+		free(nodo);
+		head = head->next;
 	}
 }
