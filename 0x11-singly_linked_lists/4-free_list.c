@@ -9,9 +9,12 @@
  */
 void free_list(list_t *head)
 {
-	int cont;
-	for (cont = 0; head != '\0'; head = head->next, cont++)
+	list_t *nodo;
+
+	while (head != '\0')
 	{
+		nodo = head->next;
 		free(head);
+		head = nodo;
 	}
 }
