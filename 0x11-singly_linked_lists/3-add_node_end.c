@@ -20,7 +20,7 @@ list_t *add_node_end(list_t **head, const char *str)
 		if (nodo == NULL)
 		{
 			free(nodo);
-			return(NULL);
+			return (NULL);
 		}
 		nodo->str = strdup(str);
 		while (str[i])
@@ -41,6 +41,6 @@ list_t *add_node_end(list_t **head, const char *str)
 				temp = temp->next;
 			}
 			temp->next = nodo;
-		} 
+		}
 	return (*head);
 }
