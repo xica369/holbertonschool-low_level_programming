@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "holberton.h"
 int compare(char *s, int len, int i);
 /**
