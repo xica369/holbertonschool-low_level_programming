@@ -33,12 +33,16 @@ int is_prime_number(int n)
 {
 	int x = 2;
 
-	if (n == 1 || n < 0)
+	if (n == 1 || n == -1)
 	{
 		return (0);
 	}
 	else
 	{
+		if (n < 0)
+		{
+			n = n * -1;
+		}
 		return (prime(n, x));
 	}
 }
