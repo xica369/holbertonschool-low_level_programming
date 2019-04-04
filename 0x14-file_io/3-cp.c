@@ -13,14 +13,12 @@
  */
 int main(int argc, char **argv)
 {
-	int fd, fd2, number, w;
+	int fd, fd2, aux, n;
 	char bf[1024];
 
 	if (argc != 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to"),
 		exit(97);
-	}
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 		dprintf(STDERR_FILENO,
@@ -31,23 +29,25 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO,
 			"Error: Can't write to %s", argv[2]),
 			exit(99);
-	number = read(fd, bf, 1024);
-	if (number == -1)
+	while (aux)
+	{n = read(fd, bf, 1024);
+	if (n == -1)
 		dprintf(STDERR_FILENO,
 			"Error: Can't read from file %s", argv[1]),
 			exit(98);
-	w = write(fd2, bf, number);
-	if (w == -1)
+	aux = write(fd2, bf, n);
+	if (aux == -1)
 		dprintf(STDERR_FILENO,
 			"Error: Can't write to %s", argv[2]),
 			exit(99);
-	w = close (fd);
-	if (w == -1)
+	}
+	aux = close(fd);
+	if (aux == -1)
 		dprintf(STDERR_FILENO,
 			"Error: Can't close fd %i", fd),
 			exit(100);
-	w = close (fd2);
-	if (w == -1)
+	aux = close(fd2);
+	if (aux == -1)
 		dprintf(STDERR_FILENO,
 			"Error: Can't close fd %i", fd2),
 			exit(100);
