@@ -12,7 +12,7 @@
  */
 int main(int argc, char **argv)
 {
-	int fd, fd2, aux, n;
+	int fd, fd2, aux = 1, n;
 	char bf[1024];
 
 	if (argc != 3)
