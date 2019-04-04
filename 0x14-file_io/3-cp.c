@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
-#include <string.h>
 /**
  *main - program that copies the content of a file to another file
  *
@@ -17,39 +16,39 @@ int main(int argc, char **argv)
 	char bf[1024];
 
 	if (argc != 3)
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to"),
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"),
 		exit(97);
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 		dprintf(STDERR_FILENO,
-			"Error: Can't read from file %s", argv[1]),
+			"Error: Can't read from file %s\n", argv[1]),
 			exit(98);
 	fd2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd2 == -1)
 		dprintf(STDERR_FILENO,
-			"Error: Can't write to %s", argv[2]),
+			"Error: Can't write to %s\n", argv[2]),
 			exit(99);
 	while (aux)
 	{n = read(fd, bf, 1024);
 	if (n == -1)
 		dprintf(STDERR_FILENO,
-			"Error: Can't read from file %s", argv[1]),
+			"Error: Can't read from file %s\n", argv[1]),
 			exit(98);
 	aux = write(fd2, bf, n);
 	if (aux == -1)
 		dprintf(STDERR_FILENO,
-			"Error: Can't write to %s", argv[2]),
+			"Error: Can't write to %s\n", argv[2]),
 			exit(99);
 	}
 	aux = close(fd);
 	if (aux == -1)
 		dprintf(STDERR_FILENO,
-			"Error: Can't close fd %i", fd),
+			"Error: Can't close fd %i\n", fd),
 			exit(100);
 	aux = close(fd2);
 	if (aux == -1)
 		dprintf(STDERR_FILENO,
-			"Error: Can't close fd %i", fd2),
+			"Error: Can't close fd %i\n", fd2),
 			exit(100);
 	return (0);
 }
