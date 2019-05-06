@@ -33,7 +33,10 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 			nodo = aux->next;
 			free(nodo);
 			aux->next = sig;
-			sig->prev = aux;
+			if (sig != NULL)
+			{
+				sig->prev = aux;
+			}
 			return (1);
 		}
 	}
