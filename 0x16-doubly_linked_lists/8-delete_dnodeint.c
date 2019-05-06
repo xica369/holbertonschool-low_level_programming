@@ -18,6 +18,10 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		sig = aux->next;
 		nodo = aux;
 		free(nodo);
+		if (sig != NULL)
+		{
+			sig->prev = NULL;
+		}
 		*head = sig;
 		return (1);
 	}
@@ -29,6 +33,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 			nodo = aux->next;
 			free(nodo);
 			aux->next = sig;
+			sig->prev = aux;
 			return (1);
 		}
 	}
