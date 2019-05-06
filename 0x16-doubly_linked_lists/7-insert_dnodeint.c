@@ -23,7 +23,12 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	if (idx == 0)
 	{
 		nodo->next = *h;
+		if (*h != NULL)
+		{
+			(*h)->prev = nodo;
+		}
 		*h = nodo;
+		nodo->prev = NULL;
 		return (*h);
 	}
 	aux = *h;
@@ -34,6 +39,8 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			sig = aux->next;
 			aux->next = nodo;
 			nodo->next = sig;
+			sig->prev = nodo;
+			nodo->prev = aux;
 			return (nodo);
 		}
 		iter++;
