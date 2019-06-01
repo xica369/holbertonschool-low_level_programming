@@ -19,7 +19,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	index = key_index((const unsigned char *)key, ht->size);
 
-	head = ht->array[0];
+	head = ht->array[index];
 	for (; head != NULL; head = head->next)
 	{
 		if (strcmp(key, head->key) == 0)
@@ -44,6 +44,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new->key = strdup(key);
 	new->value = strdup(value);
 	new->next = ht->array[index];
-	ht->array[0] = new;
+	ht->array[index] = new;
 	return (1);
 }
