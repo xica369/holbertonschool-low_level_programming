@@ -8,30 +8,30 @@
  */
 void partition(int *array, int start, int end, size_t size)
 {
-	int index, aux, pivot, i, start2, end2, end1, start1;
+	int index, aux, last_index, i;
 
-		pivot = end - 1;
-		index = start;
-		for (i = start; i <= pivot; i++)
+	last_index = end;
+	index = start;
+	for (i = start; i < last_index; i++)
+	{
+		if (array[i] < array[last_index])
 		{
-			if (array[pivot] >= array[i])
-			{
-				aux = array[i];
-				array[i] = array[index];
-				array[index] = aux;
-				index++;
-				print_array(array, size);
-			}
+			aux = array[i];
+			array[i] = array[index];
+			array[index] = aux;
+			index++;
+			print_array(array, size);
 		}
-		start1 = start;
-		end1 = index - 1;
-		start2 = index + 1;
-		end2 = pivot;
-
-		if (end1 != start1 && start1 >= 0 && end > 0)
-			partition(array, start1, end1, size);
-		if (end2 != start2 && start2 < pivot && end < pivot)
-			partition(array, start2, end2, size);
+	}
+	printf("i: %d, pivot: %d, index: %d\n", i, array[last_index], index);
+	aux = array[i];
+	array[i] = array[index];
+	array[index] = aux;
+	if (end > start)
+	{
+		partition(array, start, index - 1, size);
+		partition(array, index + 1, end, size);
+	}
 }
 
 
@@ -44,7 +44,7 @@ void quick_sort(int *array, size_t size)
 {
 	int pivot, start;
 
-	pivot = size;
+	pivot = size - 1;
 	start = 0;
 	partition(array, start, pivot, size);
 }
