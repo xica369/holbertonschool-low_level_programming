@@ -7,10 +7,12 @@
  */
 void shell_sort(int *array, size_t size)
 {
-	size_t aux, i, flag;
+	size_t aux = 1, i, flag;
 	int temp;
 
-	aux = (size - 1) / 2;
+	while (aux < size)
+		aux = aux * 3 + 1;
+	aux = (aux - 1) / 3;
 	while (aux > 0)
 	{
 		flag = 0;
