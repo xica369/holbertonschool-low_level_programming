@@ -1,20 +1,44 @@
 #include "sort.h"
 
+int partition(int *array, int start, int end, size_t size);
 /**
- * partition - recursively does Lomuto partition
+ * recursion - recursively does quick sort
  * @array: the array to be sorted
  * @start: the first element of the array
  * @end: the pivot for the array
+ * @size: number of elements of the array
  */
-void partition(int *array, int start, int end, size_t size)
+void recursion(int *array, int start, int end, size_t size)
 {
-	int index, aux, last_index, i;
+	size_t index = 0;
 
-	last_index = end;
-	index = start;
-	for (i = start; i < last_index; i++)
+	if (start < end)
 	{
-		if (array[i] < array[last_index])
+		index = partition(array, start, end, size);
+		if (index > 0)
+			recursion(array, start, index - 1, size);
+		if (index != size)
+			recursion(array, index + 1, end, size);
+	}
+}
+
+
+/**
+ * partition - it does Lomuto partition
+ * @array: the array to be sorted
+ * @start: the first element of the array
+ * @end: the pivot for the array
+ * @size: number of elements of the array
+ *
+ * Return: index for the sort
+ */
+int partition(int *array, int start, int end, size_t size)
+{
+	int pivot = array[end], index = start, i, aux;
+
+	for (i = start; i < end; i++)
+	{
+		if (array[i] <= pivot)
 		{
 			aux = array[i];
 			array[i] = array[index];
@@ -23,17 +47,11 @@ void partition(int *array, int start, int end, size_t size)
 			print_array(array, size);
 		}
 	}
-	printf("i: %d, pivot: %d, index: %d\n", i, array[last_index], index);
-	aux = array[i];
-	array[i] = array[index];
-	array[index] = aux;
-	if (end > start)
-	{
-		partition(array, start, index - 1, size);
-		partition(array, index + 1, end, size);
-	}
+	aux = array[index];
+	array[index] = array[end];
+	array[end] = aux;
+	return (index);
 }
-
 
 /**
  * quick_sort - a function that sorts an array by quick sort
@@ -42,9 +60,8 @@ void partition(int *array, int start, int end, size_t size)
  */
 void quick_sort(int *array, size_t size)
 {
-	int pivot, start;
+	int start = 0, end = size - 1;
 
-	pivot = size - 1;
-	start = 0;
-	partition(array, start, pivot, size);
+	if (array != NULL && size != 0)
+		recursion(array, start, end, size);
 }
