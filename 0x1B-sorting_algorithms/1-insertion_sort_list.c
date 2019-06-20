@@ -1,4 +1,43 @@
 #include "sort.h"
+
+/**
+ *connect - function that connect nodes from a list
+ *@list: pointer to first element of the list;
+ *@i: node to connect
+ *@w: node previous where i will be connected
+ */
+void connect(listint_t **list, listint_t *i, listint_t *w)
+{
+	listint_t *wpre;
+
+	wpre = w->prev;
+	i->prev = wpre;
+	i->next = w;
+	w->prev = i;
+	if (wpre != NULL)
+		wpre->next = i;
+	else
+		*list = i;
+
+}
+
+/**
+ *disconnect - function that disconnect a node
+ *
+ *@i: pointer to node to disconnect
+ */
+void disconnect(listint_t *i)
+{
+	listint_t *pre, *nex;
+
+	pre = i->prev;
+	nex = i->next;
+	if (pre != NULL)
+		pre->next = nex;
+	if (nex != NULL)
+		nex->prev = pre;
+}
+
 /**
  *insertion_sort_list - function that sort a list
  *
@@ -6,39 +45,34 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *insert, *where, *insert_p, *insert_n, *where_p, *aux;
+	listint_t *h, *aux;
 	const listint_t *print;
-	int i, w = 0;
+	int flag = 0, i, j;
 
-	aux = *list;
-	for (i = 0; aux != NULL; aux = aux->next, i++)
+	if (list != NULL)
 	{
-		printf("aux: %i, aux next: %i", aux->n, aux->next->n);
-		where = aux;
-		insert = aux;
-		for (w = i; w > 0 && where->n < insert->n; where = where->prev, w--)
+		h = *list;
+		if (h->next != NULL)
+		{
+			h = h->next;
+			for (i = 0; h != NULL; h = h->next, i++)
 			{
-				printf("where: %i\n", where->prev->n);
-				if (insert->n < where->n)
+				aux = h;
+				flag = 0;
+				for (j = 0; aux != NULL && j < i; j++)
 				{
-					printf("where: %i:", where->n);
-					printf("insert: %i:", insert->n);
-					insert_n = insert->next;
-					insert_p = insert->prev;
-					where_p = where->prev;
-					if (insert_n != NULL)
-						insert_n->prev = insert_p;
-					insert_p->next = insert_n;
-					insert->next = where;
-					insert->prev = where_p;
-					if (where_p != NULL)
-						where_p->next = insert;
-					else
-						*list = insert;
-					where->prev = insert;
-					print = *list;
-					print_list(print);
+					if (aux != NULL && aux->prev != NULL && aux->n < aux->prev->n)
+					{
+						disconnect(aux);
+						connect(list, aux, aux->prev);
+						print = *list;
+						print_list(print);
+						flag = 1;
+					}
+					if (flag == 0)
+						break;
 				}
 			}
+		}
 	}
 }
