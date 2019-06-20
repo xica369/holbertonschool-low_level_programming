@@ -34,23 +34,30 @@ void recursion(int *array, int start, int end, size_t size)
  */
 int partition(int *array, int start, int end, size_t size)
 {
-	int pivot = array[end], index = start, i, aux;
+	int pivot = array[end], index = start - 1, i, aux;
 
 	for (i = start; i < end; i++)
 	{
 		if (array[i] <= pivot)
 		{
-			aux = array[i];
-			array[i] = array[index];
-			array[index] = aux;
 			index++;
-			print_array(array, size);
+			if (index != i)
+			{
+				aux = array[i];
+				array[i] = array[index];
+				array[index] = aux;
+				print_array(array, size);
+			}
 		}
 	}
-	aux = array[index];
-	array[index] = array[end];
-	array[end] = aux;
-	return (index);
+	if (pivot < array[index + 1])
+	{
+		aux = array[index + 1];
+		array[index + 1] = array[end];
+		array[end] = aux;
+		print_array(array, size);
+	}
+	return (index + 1);
 }
 
 /**
