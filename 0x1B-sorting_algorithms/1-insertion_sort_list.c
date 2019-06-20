@@ -61,7 +61,8 @@ void insertion_sort_list(listint_t **list)
 				flag = 0;
 				for (j = 0; aux != NULL && j < i; j++)
 				{
-					if (aux != NULL && aux->prev != NULL && aux->n < aux->prev->n)
+					if (aux != NULL && aux->prev != NULL &&
+					    aux->n < aux->prev->n)
 					{
 						disconnect(aux);
 						connect(list, aux, aux->prev);
