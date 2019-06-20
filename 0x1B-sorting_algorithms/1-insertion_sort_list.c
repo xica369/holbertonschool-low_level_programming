@@ -49,7 +49,7 @@ void insertion_sort_list(listint_t **list)
 	const listint_t *print;
 	int flag = 0, i, j;
 
-	if (list != NULL)
+	if (list != NULL && *list != NULL)
 	{
 		h = *list;
 		if (h->next != NULL)
