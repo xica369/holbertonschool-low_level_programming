@@ -3,14 +3,14 @@
  *shell_sort - function that sorts an array
  *
  *@array: array to sort
- *@size_t_size: number of elements of the array
+ *@size: number of elements of the array
  */
 void shell_sort(int *array, size_t size)
 {
 	size_t aux, i, flag;
 	int temp;
 
-	aux = size / 2;
+	aux = (size - 1) / 2;
 	while (aux > 0)
 	{
 		flag = 0;
@@ -26,7 +26,7 @@ void shell_sort(int *array, size_t size)
 		}
 		if (flag == 0)
 		{
-			aux = aux / 2;
+			aux = (aux - 1) / 3;
 			print_array(array, size);
 		}
 	}
