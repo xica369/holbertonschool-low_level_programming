@@ -54,7 +54,6 @@ void insertion_sort_list(listint_t **list)
 		h = *list;
 		if (h->next != NULL)
 		{
-			h = h->next;
 			for (i = 0; h != NULL; h = h->next, i++)
 			{
 				aux = h;
