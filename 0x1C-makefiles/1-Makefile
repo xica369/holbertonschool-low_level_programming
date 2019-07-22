@@ -1,0 +1,7 @@
+#make a executable file with variables
+
+CC = gcc
+SRC = main.c holberton.c
+
+all: $(SRC)
+	$(CC) $(SRC) -o holberton

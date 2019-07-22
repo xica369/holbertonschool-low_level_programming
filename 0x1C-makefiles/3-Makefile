@@ -1,0 +1,23 @@
+#Makefile with variables and command to clear
+
+CC = gcc
+SRC = main.c holberton.c
+OBJ = $(SRC:.c=.o)
+NAME = holberton
+RM = rm -f
+
+all: $(OBJ)
+	$(CC) $? -o $(NAME)
+
+%.o: %.c
+	$(CC) -c -o $@ $<
+
+clean:
+	$(RM) *~ $(NAME)
+
+oclean:
+	$(RM) $(OBJ)
+
+fclean: clean oclean
+
+re: oclean all
