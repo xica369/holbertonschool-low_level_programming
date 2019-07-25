@@ -2,7 +2,7 @@
 size_t binary_tree_size2(const binary_tree_t *tree);
 
 /**
- * binary_tree_height2 - measures the size of a binary tree
+ * binary_tree_size2 - measures the size of a binary tree
  *
  *@tree: pointer to tree
  *
@@ -34,7 +34,7 @@ size_t binary_tree_size2(const binary_tree_t *tree)
 }
 
 /**
- * binary_tree_height - measures the size of a binary tree
+ * binary_tree_size - measures the size of a binary tree
  *
  *@tree: pointer to tree
  *
@@ -43,5 +43,8 @@ size_t binary_tree_size2(const binary_tree_t *tree)
 
 size_t binary_tree_size(const binary_tree_t *tree)
 {
+	if (tree == NULL)
+		return (0);
+
 	return (binary_tree_size2(tree) + 1);
 }
