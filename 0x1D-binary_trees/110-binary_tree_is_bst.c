@@ -16,6 +16,7 @@ int binary_tree_is_bst5(const binary_tree_t *tree, const binary_tree_t *tree2
 {
 	if (tree == NULL || tree2 == NULL)
 		return (0);
+
 	if (value <= tree->n)
 		return (0);
 	if (tree != tree2)
@@ -42,6 +43,7 @@ int binary_tree_is_bst4(const binary_tree_t *tree, const binary_tree_t *tree2
 {
 	if (tree == NULL || tree2 == NULL)
 		return (0);
+
 	if (value >= tree->n)
 		return (0);
 	if (tree != tree2)
@@ -101,6 +103,7 @@ int binary_tree_is_bst2(const binary_tree_t *tree)
 {
 	if (tree == NULL)
 		return (0);
+
 	{
 		if (tree->left != NULL)
 		{
@@ -122,12 +125,20 @@ int binary_tree_is_bst2(const binary_tree_t *tree)
 	}
 }
 
+/**
+ *binary_tree_is_bst - checks if a binary tree is a valid Binary Search Tree
+ *
+ *@tree: pointer to the root node of the tree to check
+ *
+ *Return: 1 if tree is a valid BST, and 0 otherwise
+ */
 int binary_tree_is_bst(const binary_tree_t *tree)
 {
 	int flag = 0, flag1 = 0;
 
 	if (tree == NULL)
 		return (0);
+
 	flag = binary_tree_is_bst2(tree);
 	flag1 = binary_tree_is_bst3(tree, tree);
 	if (flag == 1 && flag1 == 1)
