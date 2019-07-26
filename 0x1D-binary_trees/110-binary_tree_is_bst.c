@@ -1,8 +1,15 @@
 #include "binary_trees.h"
 int binary_tree_is_bst4(const binary_tree_t *tree, const binary_tree_t *tree2
 			, int value);
-
-
+/**
+ *binary_tree_is_bst5 - checks if a binary tree is a valid Binary Search Tree
+ *
+ *@tree: pointer to node
+ *@tree2: pointer to the root node of the tree to check
+ *@value: value to save in n
+ *
+ *Return: 1 if tree is a valid BST else 0
+ */
 
 int binary_tree_is_bst5(const binary_tree_t *tree, const binary_tree_t *tree2
 			, int value)
@@ -14,14 +21,22 @@ int binary_tree_is_bst5(const binary_tree_t *tree, const binary_tree_t *tree2
 	if (tree != tree2)
 	{
 		if (tree == tree->parent->left)
-			return(binary_tree_is_bst4(tree->parent, tree2, value));
+			return (binary_tree_is_bst4(tree->parent, tree2, value));
 		if (tree == tree->parent->right)
-			return(binary_tree_is_bst5(tree->parent, tree2, value));
+			return (binary_tree_is_bst5(tree->parent, tree2, value));
 	}
-	return(1);
+	return (1);
 }
 
-
+/**
+ *binary_tree_is_bst4 - checks if a binary tree is a valid Binary Search Tree
+ *
+ *@tree: pointer to node
+ *@tree2: pointer to the root node of the tree to check
+ *@value: value to save in n
+ *
+ *Return: 1 or 0
+ */
 int binary_tree_is_bst4(const binary_tree_t *tree, const binary_tree_t *tree2
 			, int value)
 {
@@ -32,13 +47,21 @@ int binary_tree_is_bst4(const binary_tree_t *tree, const binary_tree_t *tree2
 	if (tree != tree2)
 	{
 		if (tree == tree->parent->left)
-			return(binary_tree_is_bst4(tree->parent, tree2, value));
+			return (binary_tree_is_bst4(tree->parent, tree2, value));
 		if (tree == tree->parent->right)
-			return(binary_tree_is_bst5(tree->parent, tree2, value));
+			return (binary_tree_is_bst5(tree->parent, tree2, value));
 	}
-	return(1);
+	return (1);
 }
 
+/**
+ *binary_tree_is_bst3 - checks if a binary tree is a valid Binary Search Tree
+ *
+ *@tree: pointer to node
+ *@tree2: pointer to the root node of the tree to check
+ *
+ *Return: 1 or 0
+ */
 int binary_tree_is_bst3(const binary_tree_t *tree, const binary_tree_t *tree2)
 {
 	if (tree == NULL || tree2 == NULL)
@@ -46,29 +69,29 @@ int binary_tree_is_bst3(const binary_tree_t *tree, const binary_tree_t *tree2)
 
 	if (tree->left != NULL)
 	{
-		if(binary_tree_is_bst3(tree->left, tree2) == 0)
+		if (binary_tree_is_bst3(tree->left, tree2) == 0)
 			return (0);
 	}
 
 	if (tree->right != NULL)
 	{
 		if (binary_tree_is_bst3(tree->right, tree2) == 0)
-			return(0);
+			return (0);
 	}
 
 	if (tree != tree2)
 	{
 		if (tree == tree->parent->left)
-			return(binary_tree_is_bst4(tree->parent, tree2, tree->n));
+			return (binary_tree_is_bst4(tree->parent, tree2, tree->n));
 		if (tree == tree->parent->right)
-			return(binary_tree_is_bst5(tree->parent, tree2, tree->n));
+			return (binary_tree_is_bst5(tree->parent, tree2, tree->n));
 	}
 	return (1);
 }
 
 
 /**
- * binary_tree_is_bst - checks if a binary tree is a valid Binary Search Tree
+ *binary_tree_is_bst2 - checks if a binary tree is a valid Binary Search Tree
  *
  *@tree: pointer to the root node of the tree to traverse
  *
