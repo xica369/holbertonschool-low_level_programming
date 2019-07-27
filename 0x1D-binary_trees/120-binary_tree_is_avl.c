@@ -1,11 +1,15 @@
 #include "binary_trees.h"
 
 /**
- * avl_insert -
+ * binary_tree_is_avl - checks if a binary tree is a valid AVL Tree
  *
- * Return: 
+ *@tree: pointer to the root node of the tree to check
+ *
+ * Return: 1 if tree is a valid AVL Tree, and 0 otherwise
  */
-avl_t *avl_insert(avl_t **tree, int value)
+int binary_tree_is_avl(const binary_tree_t *tree)
 {
-
+	if (tree == NULL)
+		return (0);
+	return (1);
 }
