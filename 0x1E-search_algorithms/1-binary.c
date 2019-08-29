@@ -11,37 +11,34 @@
  */
 int binary_search(int *array, size_t size, int value)
 {
-	int start, end, middle, cont;
+	int start, end, middle, cont = 0;
 
 	start = 0;
-	end = (int)size;
-	middle = end - start;
+	end = size - 1;
 
-	if (array == NULL)
+	if (!array)
 		return (-1);
 
-	while (middle >= 1)
+	while (start <= end)
 	{
 		printf("Searching in array: ");
-		for (cont = start; cont < end; cont++)
+		for (cont = start; cont <= end; cont++)
 		{
 			printf("%d", array[cont]);
-			if (cont < end - 1)
+			if (cont < end)
 				printf(", ");
 		}
 		printf("\n");
-		middle = (end - start) / 2;
-		if (value == array[middle - 1 + start])
-			return (middle + start - 1);
-		if (value < array[middle - 1 + start])
+		middle = (end + start) / 2;
+
+		if (value == array[middle])
+			return (middle);
+
+		if (value < array[middle])
 			end = middle - 1;
-		if (value > array[middle - 1 + start])
-		{
-			if ((end - start) % 2 == 0)
-				start = middle + start;
-			else
-				start = middle + 1 + start;
-		}
+
+		if (value > array[middle])
+			start = middle + 1;
 	}
 	return (-1);
 }
